@@ -2,31 +2,31 @@ Instalação:
 
 1 - Instalar dependências
 
-```sh
+```console
 cosmobots:$ yarn install
 ```
 
 2 - Iniciar o Postgres com o Docker
 
-```sh
+```console
 cosmobots:~$ docker-compose up
 ```
 
 3 - Gerar os Types para o Prisma
 
-```sh
+```console
 cosmobots:~$ npx prisma generate
 ```
 
 4 - Empurrar os modelos das tabelas para o Postgres
 
-```sh
-cosmobots:~$ npx prisma db push
+```console
+cosmobots:~$ npx prisma db puconsole
 ```
 
 5 - Configurar o projeto para (criar os grupos padrões)
 
-```sh
+```console
 cosmobots:~$ yarn setup
 ```
 
@@ -34,19 +34,19 @@ Uso:
 
 Desenvolvimento:
 
-```sh
+```console
 cosmobots:~$ yarn dev
 ```
 
 Produção:
 
-```sh
+```console
 cosmobots:~$ yarn build
 cosmobots:~$ yarn start
 ```
 
 Teste:
 
-```sh
+```console
 cosmobots:~$ yarn jest
 ```
