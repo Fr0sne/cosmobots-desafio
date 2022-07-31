@@ -3,7 +3,7 @@ Instalação:
 1 - Instalar dependências
 
 ```console
-cosmobots:$ yarn install
+cosmobots:~$ yarn install
 ```
 
 2 - Iniciar o Postgres com o Docker
@@ -46,6 +46,7 @@ cosmobots:~$ yarn start
 ```
 
 Teste:
+Antes de rodar o seguinte comando, devemos ir ao arquivo .env e setar a variavel <strong>TEST</strong> para <strong>true</strong>.
 
 ```console
 cosmobots:~$ yarn jest
