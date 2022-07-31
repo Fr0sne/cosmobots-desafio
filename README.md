@@ -23,7 +23,7 @@ cosmobots:~$ npx prisma generate
 4 - Empurrar os modelos das tabelas para o Postgres
 
 ```console
-cosmobots:~$ npx prisma db puconsole
+cosmobots:~$ npx prisma db push
 ```
 
 5 - Configurar o projeto para (criar os grupos padrões)
