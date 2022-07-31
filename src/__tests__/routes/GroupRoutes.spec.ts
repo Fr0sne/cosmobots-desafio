@@ -17,11 +17,12 @@ describe("/group", () => {
         description: "Test",
       } as GroupCreateInput)
       .expect(201);
+    groupId = response.body.id;
+
     expect(response.body).toMatchObject({
       name: "Test",
       description: "Test",
     });
-    groupId = response.body.id;
   });
 
   it("should be able to list all groups", async () => {

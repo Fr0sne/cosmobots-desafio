@@ -8,18 +8,20 @@ import { UserCreateInput } from "../../interfaces/IUser";
 
 describe("/user", () => {
   app.listen(3001);
+  const groupRepo = new GroupRepository(Prisma);
   var userId: string;
+  var groupId: string;
   const updateObject = {
     firstName: "Cosmobots Changed",
     email: "test.changed@cosmobots.io",
     lastName: "changed",
   };
   it("should be able to create new users", async () => {
-    const groupRepo = new GroupRepository(Prisma);
     const group = await groupRepo.create({
       description: "teste",
       name: "teste",
     });
+    groupId = group.id;
     const response = await request(app)
       .post("/user")
       .send({
@@ -62,5 +64,8 @@ describe("/user", () => {
       .delete("/user/" + "this_id_does_not_exist")
       .expect(404);
     expect(response.body).toHaveProperty("message");
+  });
+  afterAll(() => {
+    groupRepo.delete({ id: groupId });
   });
 });
