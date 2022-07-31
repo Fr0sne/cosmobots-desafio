@@ -1,19 +1,21 @@
 import { Prisma } from "@prisma/client";
-import { PrismaService } from "../connections/prisma/conn";
-
-interface UserUpdateInput extends Prisma.UserUpdateInput {
-  groupId: string;
-  id: string;
-}
+import { PrismaService } from "../../connections/prisma/conn";
+import { AppError } from "../../error/AppError";
+import { UserCreateInput, UserUpdateInput } from "../../interfaces/IUser";
 
 export class UserRepository {
   constructor(private prisma: PrismaService) {}
-  async create({ email, firstName, group, lastName }: Prisma.UserCreateInput) {
+  async create({ email, firstName, groupId, lastName }: UserCreateInput) {
+    if (!email || !firstName || !groupId || !lastName)
+      throw new AppError(
+        "Email, First Name, Group and Last Name is required.",
+        400
+      );
     const createUserResult = await this.prisma.user.create({
       data: {
         email,
         firstName,
-        group,
+        groupId,
         lastName,
       },
     });
@@ -21,6 +23,7 @@ export class UserRepository {
   }
 
   async listById({ id }: { id: string }) {
+    if (!id) throw new AppError("Id is required.", 400);
     const listUserByIdResult = await this.prisma.user.findUnique({
       where: {
         id,
@@ -35,6 +38,7 @@ export class UserRepository {
   }
 
   async update({ id, email, firstName, groupId, lastName }: UserUpdateInput) {
+    if (!id) throw new AppError("Id is required.", 400);
     const updateUserResult = await this.prisma.user.update({
       where: {
         id,
