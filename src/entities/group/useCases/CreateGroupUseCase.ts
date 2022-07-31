@@ -8,12 +8,11 @@ export class CreateGroupUseCase {
       const result = await this.groupRepository.create(data);
       return {
         data: result,
-        statusCode: 200,
       };
     } catch (error: any) {
       return {
         message: error.message,
-        statusCode: error.statusCode,
+        statusCode: error.statusCode || 500,
       };
     }
   }

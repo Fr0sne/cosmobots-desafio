@@ -12,7 +12,7 @@ export class ListGroupUseCase {
     } catch (error: any) {
       return {
         message: error.message,
-        statusCode: error.statusCode,
+        statusCode: error.statusCode || 500,
       };
     }
   }

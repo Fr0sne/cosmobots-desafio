@@ -6,7 +6,7 @@ export class CreateGroupController {
   async handle(request: Request, response: Response) {
     const result = await this.createGroupUseCase.execute(request.body);
     return response
-      .status(result.statusCode || 200)
+      .status(result.statusCode || 201)
       .send(result.data || { message: result.message });
   }
 }

@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { UserCreateInput } from "../../../interfaces/IUser";
 import { UserRepository } from "../repository/UserRepository";
 
@@ -8,12 +9,21 @@ export class CreateUserUseCase {
       const result = await this.userRepository.create(data);
       return {
         data: result,
-        statusCode: 200,
       };
     } catch (error: any) {
+      let statusCode;
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        switch (error.code) {
+          case "P2003":
+            error.message = "No group found with this id.";
+            statusCode = 400;
+          default:
+            break;
+        }
+      }
       return {
         message: error.message,
-        statusCode: error.statusCode,
+        statusCode: statusCode || 500,
       };
     }
   }
