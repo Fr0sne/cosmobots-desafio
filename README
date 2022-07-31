@@ -1,0 +1,54 @@
+Instalação:
+
+1 - Instalar dependências
+
+```bash
+$ yarn install
+```
+
+2 - Iniciar o Postgres com o Docker
+
+```bash
+$ docker-compose up
+```
+
+3 - Gerar os Types para o Prisma
+
+```bash
+$ npx prisma generate
+```
+
+4 - Empurrar os modelos das tabelas para o Postgres
+
+```bash
+$ npx prisma db push
+```
+
+5 - Configurar o projeto para (criar os grupos padrões)
+
+```bash
+$ yarn setup
+```
+
+Uso:
+
+Desenvolvimento:
+
+```bash
+$ yarn dev
+```
+
+Produção:
+
+```bash
+$ yarn build
+$ yarn start
+```
+
+Teste:
+
+```bash
+$ yarn jest
+```
+
+-
