@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
-import { PrismaService } from "../../connections/prisma/conn";
-import { AppError } from "../../error/AppError";
-import { UserCreateInput, UserUpdateInput } from "../../interfaces/IUser";
+import { PrismaService } from "../../../connections/prisma/conn";
+import { AppError } from "../../../error/AppError";
+import { UserCreateInput, UserUpdateInput } from "../../../interfaces/IUser";
 
 export class UserRepository {
   constructor(private prisma: PrismaService) {}

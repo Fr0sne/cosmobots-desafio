@@ -1,7 +1,4 @@
-import { Prisma, User } from "@prisma/client";
-import { AppError } from "../../error/AppError";
-import { UserUpdateInput } from "../../interfaces/IUser";
-import { UpdateUserController } from "../controllers/UpdateUserController";
+import { UserUpdateInput } from "../../../interfaces/IUser";
 import { UserRepository } from "../repository/UserRepository";
 
 export class UpdateUserUseCase {

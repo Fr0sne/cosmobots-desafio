@@ -1,5 +1,4 @@
-import { Prisma } from "../connections";
-import { PrismaService } from "../connections/prisma/conn";
+import { Prisma } from "../../connections";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
 import { ListUserController } from "./controllers/ListUserController";

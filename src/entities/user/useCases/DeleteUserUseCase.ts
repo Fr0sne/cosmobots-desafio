@@ -1,7 +1,4 @@
-import { Prisma, User } from "@prisma/client";
-import { AppError } from "../../error/AppError";
-import { UserDeleteInput } from "../../interfaces/IUser";
-import { DeleteUserController } from "../controllers/DeleteUserController";
+import { UserDeleteInput } from "../../../interfaces/IUser";
 import { UserRepository } from "../repository/UserRepository";
 
 export class DeleteUserUseCase {

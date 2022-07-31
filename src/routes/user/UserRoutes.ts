@@ -4,7 +4,7 @@ import {
   DeleteUserHandle,
   ListUserHandle,
   UpdateUserHandle,
-} from "../../user";
+} from "../../entities/user";
 
 const userRoutes = Router();
 

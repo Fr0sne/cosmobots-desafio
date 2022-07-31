@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { PrismaService } from "../connections/prisma/conn";
+import { PrismaService } from "../../../connections/prisma/conn";
 
 interface GroupUpdateInput extends Prisma.GroupUpdateInput {
   id: string;

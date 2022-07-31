@@ -1,7 +1,4 @@
-import { Prisma, User } from "@prisma/client";
-import { AppError } from "../../error/AppError";
-import { UserCreateInput } from "../../interfaces/IUser";
-import { CreateUserController } from "../controllers/CreateUserController";
+import { UserCreateInput } from "../../../interfaces/IUser";
 import { UserRepository } from "../repository/UserRepository";
 
 export class CreateUserUseCase {

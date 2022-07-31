@@ -1,8 +1,4 @@
-export interface UserUpdateInput {
-  email: string;
-  firstName: string;
-  lastName: string;
-  groupId: string;
+export interface UserUpdateInput extends UserCreateInput {
   id: string;
 }
 

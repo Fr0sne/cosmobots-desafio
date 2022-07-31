@@ -1,4 +1,3 @@
-import { User } from "@prisma/client";
 import { Request, Response } from "express";
 import { ListUserUseCase } from "../useCases/ListUserUseCase";
 
